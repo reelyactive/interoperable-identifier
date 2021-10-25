@@ -1,7 +1,9 @@
 The InteroperaBLE Identifier
 ============================
 
-A protocol-agnostic Bluetooth Low Energy identifier compatible across platforms and operating systems.
+An open specification by [reelyActive](https://www.reelyactive.com) to maximise the interoperability of radio-identifiers across protocols, platforms and operating systems.  Read the open specification at [reelyactive.github.io/interoperable-identifier](https://reelyactive.github.io/interoperable-identifier/).
+
+Interpretation of InteroperaBLE Identifiers is implemented by the [advlib-interoperable](https://github.com/reelyactive/advlib-interoperable) module of the open source [advlib](https://github.com/reelyactive/advlib) library which is used by [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/).
 
 
 License
