@@ -406,6 +406,25 @@
             </dd>
           </dl>
           <p> The Instance ID may be ignored.  The interpretation is that the device transmitting this Entity UUID is signalling a button press event. </p>
+          <h4>
+            BlueUp "Safety"
+            <small class="text-muted">
+              <i class="fas fa-hand-pointer"></i>
+            </small>
+          </h4>
+          <p> Interpret as a BlueUp "Safety" packet.  BlueBeacon series devices from BlueUp embed real-time personal safety data, such as button presses, in the minor identifier of an iBeacon packet.  By configuring such devices to use the Entity UUID below as the iBeacon UUID, this data can be interpreted from the Instance ID. </p>
+          <dl class="row mt-4">
+            <dt class="col-sm-4 col-lg-3 offset-sm-1 offset-lg-2"> 
+              <span class="badge rounded-pill bg-primary">
+                <i class="fas fa-barcode"></i>
+              </span>
+              &nbsp; Entity UUID
+            </dt>
+            <dd class="col-sm-7 font-monospace user-select-all">
+              496f4944-434f-4445-b73e-427574746f6e
+            </dd>
+          </dl>
+          <p> For example, Instance ID <b class="font-monospace">0x0008001</b> would be interpreted as a short button press and a battery level of 2.99V (consult the <a href="https://support.blueupbeacons.com/" target="_blank"><i class="fas fa-external-link-alt"></i> BlueUp technical documentation</a> for details). </p>
           <!----- Where to next ----->
           <hr class="my-4">
           <h2> Where to next? </h2>
