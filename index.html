@@ -343,7 +343,35 @@
             </div>
           </div>
           <h3> Entity UUID interpretation as URI </h3>
-          <p> To be completed... </p>
+          <p> An InteroperaBLE Identifier may be interpreted as a Uniform Resource Identifier (URI), which may be used to identify anything. </p>
+          <h4>
+            Local .mp3 file
+            <small class="text-muted">
+              <i class="fas fa-link"></i>
+            </small>
+          </h4>
+          <p> Interpret as a local .mp3 file of the form <b class="font-monospace">"file:/xxxxxxx.mp3"</b>. </p>
+          <dl class="row mt-4">
+            <dt class="col-sm-4 col-lg-3 offset-sm-1 offset-lg-2"> 
+              <span class="badge rounded-pill bg-primary">
+                <i class="fas fa-barcode"></i>
+              </span>
+              &nbsp; Entity UUID
+            </dt>
+            <dd class="col-sm-7 font-monospace user-select-all">
+              496f4944-434f-4445-b73e-2e2f2e6d7033
+            </dd>
+            <dt class="col-sm-4 col-lg-3 offset-sm-1 offset-lg-2"> 
+              <span class="badge rounded-pill bg-primary">
+                <i class="fas fa-barcode"></i>
+              </span>
+              &nbsp; <em>Elided</em> Entity UUID
+            </dt>
+            <dd class="col-sm-7 font-monospace user-select-all">
+              496f49442e2f2e6d7033 
+            </dd>
+          </dl>
+          <p> The Instance ID is interpreted as 7-character-long, leading-zero-padded hexadecimal string (ex: <span class="font-monospace">"0123abc"</span>).  This is prefixed with <span class="font-monospace">"file:/"</span> and suffixed with <span class="font-monospace">".mp3"</span> to complete the URI. </p>
           <h3 class="mt-4"> Entity UUID <em>alternative</em> interpretations </h3>
           <p> An InteroperaBLE Identifier may alternatively be interpreted as something other than a URI.  In this case, the 28-bit identifier typically represents an index into a table associated with the Entity UUID. </p>
           <h4>
