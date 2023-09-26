@@ -450,6 +450,34 @@
             </div>
           </div>
           <h4>
+            Motion
+            <small class="text-muted">
+              <i class="fas fa-walking"></i>
+            </small>
+          </h4>
+          <p> Interpret as a motion detection event.  Devices with accelerometers (or other motion sensors) may not transmit motion detection status explicitly in a packet payload, but rather can be configured to transmit a predefined packet (ex: iBeacon or Eddystone) upon a given threshold or trigger. </p>
+          <dl class="row mt-4">
+            <dt class="col-sm-4 col-lg-3 offset-sm-1 offset-lg-2"> 
+              <span class="badge rounded-pill bg-primary">
+                <i class="fas fa-barcode"></i>
+              </span>
+              &nbsp; Entity UUID
+            </dt>
+            <dd class="col-sm-7 font-monospace user-select-all">
+              496f4944-434f-4445-b73e-4d6f74696f63
+            </dd>
+            <dt class="col-sm-4 col-lg-3 offset-sm-1 offset-lg-2"> 
+              <span class="badge rounded-pill bg-primary">
+                <i class="fas fa-barcode"></i>
+              </span>
+              &nbsp; <em>Elided</em> Entity UUID
+            </dt>
+            <dd class="col-sm-7 font-monospace user-select-all">
+              496f49444d6f74696f63
+            </dd>
+          </dl>
+          <p> The Instance ID may be ignored.  The interpretation is that the device transmitting this Entity UUID is signalling a motion detection event. </p>
+          <h4>
             Button
             <small class="text-muted">
               <i class="fas fa-hand-pointer"></i>
