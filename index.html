@@ -7,6 +7,7 @@
     <meta name="description"
           content="An open specification by reelyActive to maximise the interoperability of radio-identifiers across protocols, platforms and operating systems.">
     <link rel="stylesheet" href="style/bootstrappyactive.min.css">
+    <script type="module" src="js/color-modes.js"></script>
     <title> InteroperaBLE Identifier </title>
     <!----- Structured, linked metadata (JSON-LD & Schema.org) ----->
     <script type="application/ld+json">
@@ -42,8 +43,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white
-                shadow">
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary shadow">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="images/reelyactive-developers-logo-nav.png" width="135"
@@ -60,6 +60,36 @@
           </ul>
           <!-- Right-aligned navigation items -->
           <ul class="navbar-nav">
+            <!-- Colour theme chooser -->
+            <li class="nav-item dropdown">
+              <button class="btn btn-link nav-link dropdown-toggle"
+                      id="bd-theme" type="button" aria-expanded="false"
+                      data-bs-toggle="dropdown" data-bs-display="static"
+                      aria-label="Toggle theme (auto)">
+                <i class="fas fa-adjust"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow"
+                  aria-labelledby="bd-theme-text">
+                <li>
+                  <button type="button" class="dropdown-item"
+                          data-bs-theme-value="light" aria-pressed="false">
+                    <i class="fas fa-sun"></i> Light
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item"
+                          data-bs-theme-value="dark" aria-pressed="false">
+                    <i class="fas fa-moon"></i> Dark
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item active"
+                          data-bs-theme-value="auto" aria-pressed="true">
+                    <i class="fas fa-adjust"></i> Auto
+                  </button>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarInfoDropdown"
                  role="button" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -140,9 +170,9 @@
             <div class="card-body">
               <h2>
                 The TL;DR
-                <small class="text-muted"> (Too Long; Didn't Read) </small>
+                <small class="text-body-secondary"> (Too Long; Didn't Read) </small>
               </h2>
-              <p class="lead"> One identifier <del class="text-muted">to rule</del> compatible with them all. </p>
+              <p class="lead"> One identifier <del class="text-body-secondary">to rule</del> <em class="text-body-emphasis">compatible</em> with them all. </p>
               <hr>
               <dl class="row">
                 <dt class="col-sm-3">What's the purpose?</dt>
@@ -150,12 +180,12 @@
                 <dt class="col-sm-3">What's with the BLE?</dt>
                 <dd class="col-sm-9">The open specification was motivated by <i class="fab fa-bluetooth"></i> Bluetooth Low Energy (BLE) interoperability challenges, but is in fact protocol-agnostic.</dd>
                 <dt class="col-sm-3">Can anyone use this?</dt>
-                <dd class="col-sm-9">Yes. It is an open specification and <a href="https://github.com/reelyactive/advlib-interoperable/" target="_blank"><i class="fas fa-external-link-alt"></i> advlib-interoperable</a> is an open source interpreter implementation which is embedded in <a href="https://www.reelyactive.com/pareto/anywhere/" target="_blank"><i class="fas fa-external-link-alt"></i> Pareto Anywhere</a>. </dd>
+                <dd class="col-sm-9">Yes. It is an open specification and <a href="https://github.com/reelyactive/advlib-interoperable/" target="_blank"><i class="fab fa-github"></i>/advlib-interoperable</a> is an open source interpreter implementation which is embedded in reelyActive's <a href="https://www.reelyactive.com/pareto/anywhere/" target="_blank"><i class="fas fa-external-link-alt"></i> Pareto Anywhere</a> open source IoT middleware. </dd>
               </dl>
             </div>
           </div>
           <!----- Part 1 of 2 ----->
-          <div class="card hover-shadow my-5 bg-light border-0">
+          <div class="card hover-shadow my-5 bg-body-secondary border-0">
             <div class="card-body pt-4">
               <h2 id="part01" class="card-title my-2">
                 InteroperaBLE Identifier structure &nbsp;
@@ -190,7 +220,7 @@
                 </th>
                 <th scope="row"> Entity UUID </th>
                 <td> 128-bits </td>
-                <td> Identifies the entity or organisation responsible for the device <br> <small class="text-muted">(see Entity UUID subsection below)</small> </td>
+                <td> Identifies the entity or organisation responsible for the device <br> <small class="text-body-secondary">(see Entity UUID subsection below)</small> </td>
               </tr>
               <tr>
                 <th scope="row" class="text-center text-white bg-ambient">
@@ -198,7 +228,7 @@
                 </th>
                 <th scope="row"> Instance ID </th>
                 <td> 28-bits </td>
-                <td> Uniquely identifies the individual device <br> <small class="text-muted">(which itself may identify a person, product or place)</small> </td>
+                <td> Uniquely identifies the individual device <br> <small class="text-body-secondary">(which itself may identify a person, product or place)</small> </td>
               </tr>
               <tr>
                 <th scope="row" class="text-center text-white bg-success">
@@ -224,11 +254,11 @@
           <p> Each character is hexadecimal (0-9, a-f) with the following constraints: </p>
           <dl class="row">
             <dt class="col-sm-1 offset-sm-1"> X </dt>
-            <dd class="col-sm-10"> Any value <br> <small class="text-muted">The entire UUID must be unique from that of other entities and organisations</small> </dd>
+            <dd class="col-sm-10"> Any value <br> <small class="text-body-secondary">The entire UUID must be unique from that of other entities and organisations</small> </dd>
             <dt class="col-sm-1 offset-sm-1"> M </dt>
             <dd class="col-sm-10"> Must be <b>4</b> to represent Version 4 </dd>
             <dt class="col-sm-1 offset-sm-1"> N </dt>
-            <dd class="col-sm-10"> Upper bits must be 10<sub>b</sub> to represent Variant 1 <br> <small class="text-muted">Valid values for N are therefore <b>8, 9, a or b</b></small> </dd>
+            <dd class="col-sm-10"> Upper bits must be 10<sub>b</sub> to represent Variant 1 <br> <small class="text-body-secondary">Valid values for N are therefore <b>8, 9, a or b</b></small> </dd>
           </dl>
 
           <h3 class="mt-4"> Implementations </h3>
@@ -247,7 +277,7 @@
                       aria-selected="false"> <i class="fab fa-apple"></i> iBeacon </button>
             </li>
           </ul>
-          <div class="tab-content tab-content-border">
+          <div class="tab-content tab-content-border border-light-subtle">
             <div class="tab-pane fade show active" id="eddystonecontent"
                  role="tabpanel" aria-labelledby="eddystonetab">
               <img src="images/implementation-eddystone-uid.png"
@@ -286,7 +316,7 @@
                 <span class="badge bg-primary">
                   <i class="fas fa-info"></i>
                 </span> 
-                &nbsp; The <em>elided</em> UUID has the form XXXXXXXX<del class="text-muted">-XXXX-MXXX-NXXX-</del>XXXXXXXXXXXX where 48-bits are removed from the 128-bit Entity UUID as indicated by the strikeout, <a href="https://github.com/google/eddystone/tree/master/eddystone-uid#elided-version-4-uuid" target="_blank">as specified in the Eddystone documentation</a>.
+                &nbsp; The <em>elided</em> UUID has the form XXXXXXXX<del class="text-body-secondary">-XXXX-MXXX-NXXX-</del>XXXXXXXXXXXX where 48-bits are removed from the 128-bit Entity UUID as indicated by the strikeout, <a href="https://github.com/google/eddystone/tree/master/eddystone-uid#elided-version-4-uuid" target="_blank">as specified in the Eddystone documentation</a>.
               </p>
             </div>
             <div class="tab-pane fade" id="ibeaconcontent" role="tabpanel"
@@ -326,7 +356,7 @@
             </div>
           </div>
           <!----- Part 2 of 2 ----->
-          <div class="card hover-shadow my-5 bg-light border-0">
+          <div class="card hover-shadow my-5 bg-body-secondary border-0">
             <div class="card-body pt-4">
               <h2 id="part01" class="card-title my-2">
                 InteroperaBLE Identifier interpretation &nbsp;
@@ -346,7 +376,7 @@
           <p> An InteroperaBLE Identifier may be interpreted as a Uniform Resource Identifier (URI), which may be used to identify anything. </p>
           <h4>
             Local .mp3 file
-            <small class="text-muted">
+            <small class="text-body-tertiary">
               <i class="fas fa-link"></i>
             </small>
           </h4>
@@ -374,7 +404,7 @@
           <p> The Instance ID is interpreted as 7-character-long, leading-zero-padded hexadecimal string (ex: <span class="font-monospace">"0123abc"</span>).  This is prefixed with <span class="font-monospace">"file:/"</span> and suffixed with <span class="font-monospace">".mp3"</span> to complete the URI. </p>
           <div class="row">
             <div class="col-sm-3 col-lg-2 offset-sm-1 offset-lg-2">
-              <b class="text-muted"> Used by: </b>
+              <b class="text-body-secondary"> Used by: </b>
             </div>
             <div class="col-sm-7">
               <ul class="list-unstyled ms-5">
@@ -391,7 +421,7 @@
           <p> An InteroperaBLE Identifier may alternatively be interpreted as something other than a URI.  In this case, the 28-bit identifier typically represents an index into a table associated with the Entity UUID. </p>
           <h4>
             Unicode Code Point
-            <small class="text-muted"> <i class="fas fa-language"></i> </small>
+            <small class="text-body-tertiary"> <i class="fas fa-language"></i> </small>
           </h4>
           <p> Interpret the Instance ID as a single Unicode code point (i.e. as UTF-32).  The <a href="https://unicode.org" target="_blank"><i class="fas fa-external-link-alt"></i> Unicode standard</a> includes over 144,000 characters, including <a href="https://unicode.org/emoji/charts/full-emoji-list.html" target="_blank"><i class="fas fa-external-link-alt"></i> a growing list of emojis</a>, which can be encoded in an InteroperaBLE Identifier, provided they consist of a single code point. </p>
           <dl class="row mt-4">
@@ -414,10 +444,10 @@
               496f49445554462d3332
             </dd>
           </dl>
-          <p> For example, Instance ID <b class="font-monospace">0x001f989</b> would be interpreted as <span class="display-6"> &#x1f989 </span> <small class="text-muted">(owl emoji)</small> </p>
+          <p> For example, Instance ID <b class="font-monospace">0x001f989</b> would be interpreted as <span class="display-6"> &#x1f989 </span> <small class="text-body-secondary">(owl emoji)</small> </p>
           <h4>
             DirAct
-            <small class="text-muted">
+            <small class="text-body-tertiary">
               <i class="fas fa-people-arrows"></i>
             </small>
           </h4>
@@ -436,7 +466,7 @@
           <p> The Instance ID is the 32-bit DirAct instance. </p>
           <div class="row">
             <div class="col-sm-3 col-lg-2 offset-sm-1 offset-lg-2">
-              <b class="text-muted"> Used by: </b>
+              <b class="text-body-secondary"> Used by: </b>
             </div>
             <div class="col-sm-7">
               <ul class="list-unstyled ms-5">
@@ -451,7 +481,7 @@
           </div>
           <h4>
             Motion
-            <small class="text-muted">
+            <small class="text-body-tertiary">
               <i class="fas fa-walking"></i>
             </small>
           </h4>
@@ -479,7 +509,7 @@
           <p> The Instance ID may be ignored.  The interpretation is that the device transmitting this Entity UUID is signalling a motion detection event. </p>
           <h4>
             Button
-            <small class="text-muted">
+            <small class="text-body-tertiary">
               <i class="fas fa-hand-pointer"></i>
             </small>
           </h4>
@@ -507,7 +537,7 @@
           <p> The Instance ID may be ignored.  The interpretation is that the device transmitting this Entity UUID is signalling a button press event. </p>
           <h4>
             BlueUp "Safety"
-            <small class="text-muted">
+            <small class="text-body-tertiary">
               <i class="fas fa-hand-pointer"></i>
             </small>
           </h4>
@@ -531,7 +561,8 @@
           <ul class="list-group list-group-horizontal">
             <li class="list-group-item border-0">
               <a href="https://reelyactive.github.io/diy/best-practices-ble-identifiers/">
-                <img src="https://reelyactive.github.io/diy/best-practices-ble-identifiers/images/icon.png">
+                <img src="https://reelyactive.github.io/diy/best-practices-ble-identifiers/images/icon.png"
+                     class="rounded-1">
               </a>
             </li>
             <li class="list-group-item border-0">
@@ -560,7 +591,7 @@
     <footer class="footer bg-dark bg-gradient">
       <a href="https://github.com/reelyactive/interaoperable-identifier"> InteroperaBLE Identifier </a>
       &nbsp; | &nbsp;
-      <a href="https://www.reelyactive.com"> &copy; reelyActive 2020-2023 </a>
+      <a href="https://www.reelyactive.com"> &copy; reelyActive 2020-2025 </a>
     </footer>
 
     <!-- Optional JavaScript -->
